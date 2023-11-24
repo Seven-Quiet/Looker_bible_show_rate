@@ -53,4 +53,10 @@ view: show_rate {
     sql: ${appopen_enter_ad_show_total_bible} / ${appopen_enter_launch_bible} ;;
     value_format: "0.00%"
   }
+
+  measure: appopen_show_rate_bible2 {
+    type: number
+    sql: ${appopen_enter_ad_show_total_bible} / ${appopen_enter_launch_bible} ;;
+    value_format: "0.00"
+  }
 }
