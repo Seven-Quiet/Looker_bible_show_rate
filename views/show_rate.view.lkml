@@ -53,7 +53,7 @@ view: show_rate {
 
   measure: appopen_show_rate_android_bible {
     type: number
-    sql: ${appopen_enter_ad_show_total_android_bible} / ${appopen_enter_launch_android_bible} ;;
+    sql: if(${appopen_enter_launch_android_bible}=0,null,${appopen_enter_ad_show_total_android_bible} / ${appopen_enter_launch_android_bible}) ;;
     value_format: "0.00%"
   }
 
@@ -69,7 +69,7 @@ view: show_rate {
 
   measure: pray_show_rate_android_bible {
     type: number
-    sql: ${pray_ad_show_android_bible} / ${pray_ad_prepare_show_android_bible} ;;
+    sql: if(${pray_ad_prepare_show_android_bible}=0,null,${pray_ad_show_android_bible} / ${pray_ad_prepare_show_android_bible}) ;;
     value_format: "0.00%"
   }
 
@@ -85,7 +85,7 @@ view: show_rate {
 
   measure: quiz_show_rate_android_bible {
     type: number
-    sql: ${quiz_ad_show_android_bible} / ${quiz_ad_prepare_android_bible} ;;
+    sql: if(${quiz_ad_prepare_android_bible}=0,null,${quiz_ad_show_android_bible} / ${quiz_ad_prepare_android_bible}) ;;
     value_format: "0.00%"
   }
 
@@ -101,7 +101,7 @@ view: show_rate {
 
   measure: readmark_show_rate_android_bible {
     type: number
-    sql: ${readmark_ad_show_android_bible} / ${readmark_ad_prepare_show_android_bible} ;;
+    sql: if(${readmark_ad_prepare_show_android_bible}=0,null,${readmark_ad_show_android_bible} / ${readmark_ad_prepare_show_android_bible}) ;;
     value_format: "0.00%"
   }
 
@@ -268,25 +268,25 @@ view: show_rate {
 
   measure: appopen_pv_rate_android_bible {
     type: number
-    sql: ${appopen_enter_ad_show_total_android_bible} / ${ad_impression_revenue_android_bible} ;;
+    sql: if(${ad_impression_revenue_android_bible}=0,null,${appopen_enter_ad_show_total_android_bible} / ${ad_impression_revenue_android_bible}) ;;
     value_format: "0.00%"
   }
 
   measure: pray_pv_rate_android_bible {
     type: number
-    sql: ${pray_ad_show_android_bible} / ${ad_impression_revenue_android_bible} ;;
+    sql: if(${ad_impression_revenue_android_bible}=0,null,${pray_ad_show_android_bible} / ${ad_impression_revenue_android_bible}) ;;
     value_format: "0.00%"
   }
 
   measure: quiz_pv_rate_android_bible {
     type: number
-    sql: ${quiz_ad_show_android_bible} / ${ad_impression_revenue_android_bible} ;;
+    sql: if(${ad_impression_revenue_android_bible}=0,null,${quiz_ad_show_android_bible} / ${ad_impression_revenue_android_bible}) ;;
     value_format: "0.00%"
   }
 
   measure: readmark_pv_rate_android_bible {
     type: number
-    sql: ${readmark_ad_show_android_bible} / ${ad_impression_revenue_android_bible} ;;
+    sql: if(${ad_impression_revenue_android_bible}=0,null,${readmark_ad_show_android_bible} / ${ad_impression_revenue_android_bible}) ;;
     value_format: "0.00%"
   }
 
@@ -295,25 +295,25 @@ view: show_rate {
 
   measure: appopen_pv_rate_UK_bible {
     type: number
-    sql: ${appopen_enter_ad_show_total_UK_bible} / ${ad_impression_revenue_UK_bible} ;;
+    sql: if(${ad_impression_revenue_UK_bible}=0,null,${appopen_enter_ad_show_total_UK_bible} / ${ad_impression_revenue_UK_bible}) ;;
     value_format: "0.00%"
   }
 
   measure: pray_pv_rate_UK_bible {
     type: number
-    sql: ${pray_ad_show_UK_bible} / ${ad_impression_revenue_UK_bible} ;;
+    sql: if(${ad_impression_revenue_UK_bible}=0,null,${pray_ad_show_UK_bible} / ${ad_impression_revenue_UK_bible}) ;;
     value_format: "0.00%"
   }
 
   measure: quiz_pv_rate_UK_bible {
     type: number
-    sql: ${quiz_ad_show_UK_bible} / ${ad_impression_revenue_UK_bible} ;;
+    sql: if( ${ad_impression_revenue_UK_bible}=0,null,${quiz_ad_show_UK_bible} / ${ad_impression_revenue_UK_bible}) ;;
     value_format: "0.00%"
   }
 
   measure: readmark_pv_rate_UK_bible {
     type: number
-    sql: ${readmark_ad_show_UK_bible} / ${ad_impression_revenue_UK_bible} ;;
+    sql: if( ${ad_impression_revenue_UK_bible}=0,null,${readmark_ad_show_UK_bible} / ${ad_impression_revenue_UK_bible}) ;;
     value_format: "0.00%"
   }
 
@@ -324,22 +324,22 @@ view: show_rate {
 
   measure: appopen_pv_rate_IOS_bible {
     type: number
-    sql: ${appopen_enter_ad_show_total_IOS_bible} / ${ad_impression_revenue_IOS_bible} ;;
+    sql: if(${ad_impression_revenue_IOS_bible}=0,null,${appopen_enter_ad_show_total_IOS_bible} / ${ad_impression_revenue_IOS_bible}) ;;
     value_format: "0.00%"
   }
   measure: pray_pv_rate_IOS_bible {
     type: number
-    sql: ${pray_ad_show_IOS_bible} / ${ad_impression_revenue_IOS_bible} ;;
+    sql: if(${ad_impression_revenue_IOS_bible}=0,null,${pray_ad_show_IOS_bible} / ${ad_impression_revenue_IOS_bible}) ;;
     value_format: "0.00%"
   }
   measure: quiz_pv_rate_IOS_bible {
     type: number
-    sql: ${quiz_ad_show_IOS_bible} / ${ad_impression_revenue_IOS_bible} ;;
+    sql: if(${ad_impression_revenue_IOS_bible}=0,null,${quiz_ad_show_IOS_bible} / ${ad_impression_revenue_IOS_bible}) ;;
     value_format: "0.00%"
   }
   measure: readmark_pv_rate_IOS_bible {
     type: number
-    sql: ${readmark_ad_show_IOS_bible} / ${ad_impression_revenue_IOS_bible} ;;
+    sql: if(${ad_impression_revenue_IOS_bible}=0,null,${readmark_ad_show_IOS_bible} / ${ad_impression_revenue_IOS_bible}) ;;
     value_format: "0.00%"
   }
 
