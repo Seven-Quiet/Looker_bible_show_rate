@@ -54,9 +54,21 @@ view: show_rate {
     value_format: "0.00%"
   }
 
-  measure: appopen_show_rate_bible2 {
-    type: number
-    sql: ${appopen_enter_ad_show_total_bible} / ${appopen_enter_launch_bible} ;;
-    value_format: "0.00"
+  measure: pray_ad_show_bible {
+    type: count
+    filters: [project: "Bible Android", event_name: "pray_ad_show"]
   }
+
+  measure: pray_ad_prepare_show_bible {
+    type: count
+    filters: [project: "Bible Android", event_name: "pray_ad_prepare_show"]
+  }
+
+  measure: pray_show_rate_bible {
+    type: number
+    sql: ${pray_ad_show_bible} / ${pray_ad_prepare_show_bible} ;;
+    value_format: "0.00%"
+  }
+
+
 }
