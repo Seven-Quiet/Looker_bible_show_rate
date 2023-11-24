@@ -10,4 +10,4 @@ datagroup: bible_default_datagroup {
 
 persist_with: bible_default_datagroup
 
-# explore: show_rate {}
+explore: show_rate {}

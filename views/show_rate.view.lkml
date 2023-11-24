@@ -37,4 +37,20 @@ view: show_rate {
     type: count
     drill_fields: [event_name]
   }
+
+  measure: appopen_enter_ad_show_total_bible {
+    type: count
+    filters: [project: "Bible Android", event_name: "appopen_enter_ad_show_total"]
+  }
+
+  measure: appopen_enter_launch_bible {
+    type: count
+    filters: [project: "Bible Android", event_name: "appopen_enter_launch"]
+  }
+
+  measure: appopen_show_rate_bible {
+    type: number
+    sql: ${appopen_enter_ad_show_total_bible} / ${appopen_enter_launch_bible} ;;
+    value_format: "0.00%"
+  }
 }
