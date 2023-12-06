@@ -11,3 +11,5 @@ datagroup: bible_default_datagroup {
 persist_with: bible_default_datagroup
 
 explore: show_rate {}
+
+explore: first_open_push {}
