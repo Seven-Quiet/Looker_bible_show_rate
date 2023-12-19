@@ -144,12 +144,12 @@ view: show_rate {
 
   measure: quiz_ad_show_UK_bible {
     type: count
-    filters: [project: "Bible UK", event_name: "quiz_ad_show"]
+    filters: [project: "Bible UK", event_name: "quiz_UK_ad_inter_show"]
   }
 
   measure: quiz_ad_prepare_UK_bible {
     type: count
-    filters: [project: "Bible UK", event_name: "quiz_ad_prepare"]
+    filters: [project: "Bible UK", event_name: "quiz_UK_ad_inter_prepare"]
   }
 
   measure: quiz_show_rate_UK_bible {
