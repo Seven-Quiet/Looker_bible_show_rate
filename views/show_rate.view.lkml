@@ -76,7 +76,7 @@ view: show_rate {
 
   measure: quiz_ad_show_android_bible {
     type: count
-    filters: [project: "Bible Android", event_name: "quiz_ad_show"]
+    filters: [project: "Bible Android", event_name: "Quiz_AD_show_1,Quiz_AD_show_2, Quiz_AD_show_3, Quiz_AD_show_4"]
   }
 
   measure: quiz_ad_prepare_android_bible {
