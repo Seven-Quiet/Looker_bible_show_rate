@@ -259,7 +259,7 @@ view: show_rate {
 
   measure: ad_impression_revenue_IOS_bible {
     type: count
-    filters: [project: "Bible IOS", event_name: "ad_impression_revenue", ad_type: "interstitial"]
+    filters: [project: "Bible IOS", event_name: "ad_impression_revenue", ad_type: "inter"]
   }
 
 
