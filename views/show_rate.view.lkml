@@ -40,8 +40,6 @@ view: show_rate {
 
   # Android
   # aaa
-
-
   measure: appopen_enter_ad_show_total_android_bible {
     type: count
     filters: [project: "Bible Android", event_name: "appopen_enter_ad_show_total"]
@@ -76,7 +74,7 @@ view: show_rate {
 
   measure: quiz_ad_show_android_bible {
     type: count
-    filters: [project: "Bible Android", event_name: "Quiz_AD_show_1,Quiz_AD_show_2, Quiz_AD_show_3, Quiz_AD_show_4"]
+    filters: [project: "Bible Android", event_name: "Quiz_AD_show_1,Quiz_AD_show_2,Quiz_AD_show_3,Quiz_AD_show_4"]
   }
 
   measure: quiz_ad_prepare_android_bible {
@@ -242,6 +240,72 @@ view: show_rate {
   }
 
 
+  # Bible For Women
+  measure: appopen_enter_ad_show_total_bfw {
+    type: count
+    filters: [project: "Bible For Women", event_name: "appopen_enter_ad_show_total"]
+  }
+
+  measure: appopen_enter_launch_bfw {
+    type: count
+    filters: [project: "Bible For Women", event_name: "appopen_enter_launch"]
+  }
+
+  measure: appopen_show_rate_bfw {
+    type: number
+    sql: if(${appopen_enter_launch_bfw}=0,null,${appopen_enter_ad_show_total_bfw} / ${appopen_enter_launch_bfw}) ;;
+    value_format: "0.00%"
+  }
+
+  measure: pray_ad_show_bfw {
+    type: count
+    filters: [project: "Bible For Women", event_name: "pray_ad_show"]
+  }
+
+  measure: pray_ad_prepare_show_bfw {
+    type: count
+    filters: [project: "Bible For Women", event_name: "pray_ad_prepare_show"]
+  }
+
+  measure: pray_show_rate_bfw {
+    type: number
+    sql: if(${pray_ad_prepare_show_bfw}=0,null,${pray_ad_show_bfw} / ${pray_ad_prepare_show_bfw}) ;;
+    value_format: "0.00%"
+  }
+
+  measure: quiz_ad_show_bfw {
+    type: count
+    filters: [project: "Bible For Women", event_name: "Quiz_AD_show_1,Quiz_AD_show_2,Quiz_AD_show_3,Quiz_AD_show_4"]
+  }
+
+  measure: quiz_ad_prepare_bfw {
+    type: count
+    filters: [project: "Bible For Women", event_name: "quiz_ad_prepare"]
+  }
+
+  measure: quiz_show_rate_bfw {
+    type: number
+    sql: if(${quiz_ad_prepare_bfw}=0,null,${quiz_ad_show_bfw} / ${quiz_ad_prepare_bfw}) ;;
+    value_format: "0.00%"
+  }
+
+  measure: readmark_ad_show_bfw {
+    type: count
+    filters: [project: "Bible For Women", event_name: "readmark_ad_show"]
+  }
+
+  measure: readmark_ad_prepare_show_bfw {
+    type: count
+    filters: [project: "Bible For Women", event_name: "readmark_ad_prepare_show"]
+  }
+
+  measure: readmark_show_rate_bfw {
+    type: number
+    sql: if(${readmark_ad_prepare_show_bfw}=0,null,${readmark_ad_show_bfw} / ${readmark_ad_prepare_show_bfw}) ;;
+    value_format: "0.00%"
+  }
+
+
 
   # ad_impression_revenue
 
@@ -260,6 +324,11 @@ view: show_rate {
   measure: ad_impression_revenue_IOS_bible {
     type: count
     filters: [project: "Bible IOS", event_name: "ad_impression_revenue", ad_type: "inter"]
+  }
+
+  measure: ad_impression_revenue_BFW {
+    type: count
+    filters: [project: "Bible For Women", event_name: "ad_impression_revenue", ad_type: "Interstitial"]
   }
 
 
@@ -341,6 +410,29 @@ view: show_rate {
   measure: readmark_pv_rate_IOS_bible {
     type: number
     sql: if(${ad_impression_revenue_IOS_bible}=0,null,${readmark_ad_show_IOS_bible} / ${ad_impression_revenue_IOS_bible}) ;;
+    value_format: "0.00%"
+  }
+
+
+  # BFW  pv/pv
+  measure: appopen_pv_rate_bfw {
+    type: number
+    sql: if(${ad_impression_revenue_BFW}=0,null,${appopen_enter_ad_show_total_bfw} / ${ad_impression_revenue_BFW}) ;;
+    value_format: "0.00%"
+  }
+  measure: pray_pv_rate_bfw {
+    type: number
+    sql: if(${ad_impression_revenue_BFW}=0,null,${pray_ad_show_bfw} / ${ad_impression_revenue_BFW}) ;;
+    value_format: "0.00%"
+  }
+  measure: quiz_pv_rate_bfw {
+    type: number
+    sql: if(${ad_impression_revenue_BFW}=0,null,${quiz_ad_show_bfw} / ${ad_impression_revenue_BFW}) ;;
+    value_format: "0.00%"
+  }
+  measure: readmark_pv_rate_bfw {
+    type: number
+    sql: if(${ad_impression_revenue_BFW}=0,null,${readmark_ad_show_bfw} / ${ad_impression_revenue_BFW}) ;;
     value_format: "0.00%"
   }
 
