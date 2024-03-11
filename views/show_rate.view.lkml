@@ -328,7 +328,7 @@ view: show_rate {
 
   measure: ad_impression_revenue_BFW {
     type: count
-    filters: [project: "Bible For Women", event_name: "ad_impression_revenue", ad_type: "Interstitial"]
+    filters: [project: "Bible For Women", event_name: "ad_impression_revenue", ad_type: "interstitial"]
   }
 
 
