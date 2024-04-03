@@ -13,3 +13,7 @@ persist_with: bible_default_datagroup
 explore: show_rate {}
 
 explore: first_open_push {}
+
+explore: appopen_enter_launch_retention {}
+
+explore: session_start_retention {}
