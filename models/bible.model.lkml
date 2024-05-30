@@ -19,3 +19,5 @@ explore: appopen_enter_launch_retention {}
 explore: session_start_retention {}
 
 explore: crush_ios_query_data{}
+
+explore: week_comparision {}
