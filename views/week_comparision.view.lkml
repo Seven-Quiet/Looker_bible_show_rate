@@ -1,5 +1,5 @@
 view: week_comparision {
-  sql_table_name: `biblia-sagrada-consigo.Bible.week_comparision` ;;
+  sql_table_name: `biblia-sagrada-consigo.Bible.week_comparison_bible_android` ;;
 
   dimension: project {
     type: string
