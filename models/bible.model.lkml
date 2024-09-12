@@ -23,3 +23,5 @@ explore: crush_ios_query_data{}
 explore: week_comparision {}
 
 explore: week_comparison_bfw_android {}
+
+explore: week_comparison_oremus_android {}
