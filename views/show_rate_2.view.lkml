@@ -56,7 +56,7 @@ view: show_rate_2 {
   measure: start_app_pv_avg {
     type: number
     sql: ${start_app_pv}/${start_app_uv} ;;
-    value_format: "0.00%"
+    value_format: "0.00"
   }
 
   measure: appopen_enter_ad_show_total_uv {
@@ -73,7 +73,7 @@ view: show_rate_2 {
   measure: appopen_enter_ad_show_total_pv_avg {
     type: number
     sql: ${appopen_enter_ad_show_total_pv}/${start_app_uv} ;;
-    value_format: "0.00%"
+    value_format: "0.00"
   }
 
   measure: appopen_enter_launch_uv {
@@ -90,7 +90,7 @@ view: show_rate_2 {
   measure: appopen_enter_launch_pv_avg {
     type: number
     sql: ${appopen_enter_launch_pv}/${start_app_uv} ;;
-    value_format: "0.00%"
+    value_format: "0.00"
   }
 }
 
