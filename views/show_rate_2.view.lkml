@@ -56,7 +56,31 @@ view: show_rate_2 {
   measure: start_app_pv_avg {
     type: number
     sql: ${start_app_pv}/${start_app_uv} ;;
-    value_format: "0.00"
+    value_format: "0.000"
+  }
+
+  measure: fcm_m_get_uv {
+    type: count_distinct
+    sql: ${TABLE}.user_pseudo_id ;;
+    filters: {
+      field: event_name
+      value: "fcm_08_receive, TEST_BOPush_M_Receive, fcm_08_receive_oremus"
+      }
+  }
+
+
+  measure: fcm_m_get_pv {
+    type: count
+    filters: {
+      field: event_name
+      value: "fcm_08_receive, TEST_BOPush_M_Receive, fcm_08_receive_oremus"
+    }
+  }
+
+  measure: fcm_m_get_pv_avg {
+    type: number
+    sql: ${fcm_m_get_pv}/${start_app_uv} ;;
+    value_format: "0.000"
   }
 
   measure: appopen_enter_ad_show_total_uv {
@@ -73,7 +97,7 @@ view: show_rate_2 {
   measure: appopen_enter_ad_show_total_pv_avg {
     type: number
     sql: ${appopen_enter_ad_show_total_pv}/${start_app_uv} ;;
-    value_format: "0.00"
+    value_format: "0.000"
   }
 
   measure: appopen_enter_launch_uv {
@@ -90,7 +114,7 @@ view: show_rate_2 {
   measure: appopen_enter_launch_pv_avg {
     type: number
     sql: ${appopen_enter_launch_pv}/${start_app_uv} ;;
-    value_format: "0.00"
+    value_format: "0.000"
   }
 }
 
