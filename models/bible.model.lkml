@@ -12,6 +12,9 @@ persist_with: bible_default_datagroup
 
 explore: show_rate {}
 
+explore: show_rate_2 {}
+
+
 explore: first_open_push {}
 
 explore: appopen_enter_launch_retention {}
