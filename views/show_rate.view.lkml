@@ -12,7 +12,7 @@ view: show_rate {
   }
   dimension_group: event {
     type: time
-    timeframes: [raw, date, week, month, quarter, year]
+    timeframes: [raw, date, week, month, quarter, year, day_of_week]
     convert_tz: no
     datatype: date
     sql: ${TABLE}.event_date ;;
