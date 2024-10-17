@@ -1,6 +1,10 @@
 view: show_rate_2 {
   sql_table_name: `biblia-sagrada-consigo.Bible.show_rate` ;;
 
+  dimension: user_pseudo_id {
+    type: string
+    sql: ${TABLE}.user_pseudo_id ;;
+  }
   dimension: ad_type {
     type: string
     sql: ${TABLE}.ad_type ;;
@@ -40,12 +44,53 @@ view: show_rate_2 {
 
   measure: start_app_uv {
     type: count_distinct
+    sql: ${TABLE}.user_pseudo_id ;;
     filters: [event_name: "start_app"]
   }
 
   measure: start_app_pv {
     type: count
     filters: [event_name: "start_app"]
+  }
+
+  measure: start_app_pv_avg {
+    type: number
+    sql: ${start_app_pv}/${start_app_uv} ;;
+    value_format: "0.00%"
+  }
+
+  measure: appopen_enter_ad_show_total_uv {
+    type: count_distinct
+    sql: ${TABLE}.user_pseudo_id ;;
+    filters: [event_name: "appopen_enter_ad_show_total"]
+  }
+
+  measure: appopen_enter_ad_show_total_pv {
+    type: count
+    filters: [event_name: "appopen_enter_ad_show_total"]
+  }
+
+  measure: appopen_enter_ad_show_total_pv_avg {
+    type: number
+    sql: ${appopen_enter_ad_show_total_pv}/${start_app_uv} ;;
+    value_format: "0.00%"
+  }
+
+  measure: appopen_enter_launch_uv {
+    type: count_distinct
+    sql: ${TABLE}.user_pseudo_id ;;
+    filters: [event_name: "appopen_enter_launch"]
+  }
+
+  measure: appopen_enter_launch_pv {
+    type: count
+    filters: [event_name: "appopen_enter_launch"]
+  }
+
+  measure: appopen_enter_launch_pv_avg {
+    type: number
+    sql: ${appopen_enter_launch_pv}/${start_app_uv} ;;
+    value_format: "0.00%"
   }
 }
 
