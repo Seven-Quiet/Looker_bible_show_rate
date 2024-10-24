@@ -59,27 +59,101 @@ view: show_rate_2 {
     value_format: "0.000"
   }
 
-  measure: fcm_m_get_uv {
+  measure: topic_fcm_m_get_uv {
     type: count_distinct
     sql: ${TABLE}.user_pseudo_id ;;
     filters: {
       field: event_name
-      value: "fcm_08_receive, TEST_BOPush_M_Receive, fcm_08_receive_oremus"
+      value: "TEST_BOPush_M_Receive,topic_08_push_oremus,topic_08_receive"
       }
   }
 
 
-  measure: fcm_m_get_pv {
+  measure: topic_fcm_m_get_pv {
     type: count
     filters: {
       field: event_name
-      value: "fcm_08_receive, TEST_BOPush_M_Receive, fcm_08_receive_oremus"
+      value: "TEST_BOPush_M_Receive,topic_08_push_oremus,topic_08_receive"
     }
   }
 
-  measure: fcm_m_get_pv_avg {
+  measure: topic_fcm_m_get_pv_avg {
     type: number
-    sql: ${fcm_m_get_pv}/${start_app_uv} ;;
+    sql: ${topic_fcm_m_get_pv}/${start_app_uv} ;;
+    value_format: "0.000"
+  }
+
+
+
+  measure: topic_fcm_n_get_uv {
+    type: count_distinct
+    sql: ${TABLE}.user_pseudo_id ;;
+    filters: {
+      field: event_name
+      value: "TEST_BOPush_N_Receive,topic_20_push_oremus,topic_20_receive"
+    }
+  }
+
+  measure: topic_fcm_n_get_pv {
+    type: count
+    filters: {
+      field: event_name
+      value: "TEST_BOPush_N_Receive,topic_20_push_oremus,topic_20_receive"
+    }
+  }
+
+  measure: topic_fcm_n_get_pv_avg {
+    type: number
+    sql: ${topic_fcm_n_get_pv}/${start_app_uv} ;;
+    value_format: "0.000"
+  }
+
+  measure: data_fcm_m_get_uv {
+    type: count_distinct
+    sql: ${TABLE}.user_pseudo_id ;;
+    filters: {
+      field: event_name
+      value: "fcm_08_receive, fcm_08_receive_oremus"
+    }
+  }
+
+
+  measure: data_fcm_m_get_pv {
+    type: count
+    filters: {
+      field: event_name
+      value: "fcm_08_receive, fcm_08_receive_oremus"
+    }
+  }
+
+  measure: data_fcm_m_get_pv_avg {
+    type: number
+    sql: ${data_fcm_m_get_pv}/${start_app_uv} ;;
+    value_format: "0.000"
+  }
+
+
+
+  measure: data_fcm_n_get_uv {
+    type: count_distinct
+    sql: ${TABLE}.user_pseudo_id ;;
+    filters: {
+      field: event_name
+      value: "fcm_20_receive, fcm_20_receive_oremus"
+    }
+  }
+
+  measure: data_fcm_n_get_pv {
+    type: count
+    filters: {
+      field: event_name
+      value: "fcm_20_receive, fcm_20_receive_oremus"
+    }
+  }
+
+  measure: data_fcm_n_get_pv_avg {
+    type: number
+    sql: ${data_fcm_n_get_pv}/${start_app_uv} ;;
     value_format: "0.000"
   }
 
@@ -115,6 +189,132 @@ view: show_rate_2 {
     type: number
     sql: ${appopen_enter_launch_pv}/${start_app_uv} ;;
     value_format: "0.000"
+  }
+
+  measure: appopen_show_rate {
+    type: number
+    sql: if(${appopen_enter_launch_pv}=0,null,${appopen_enter_ad_show_total_pv} / ${appopen_enter_launch_pv}) ;;
+    value_format: "0.00%"
+  }
+
+  measure: pray_ad_prepare_show_uv {
+    type: count_distinct
+    sql: ${TABLE}.user_pseudo_id ;;
+    filters: [event_name: "pray_ad_prepare_show"]
+  }
+
+  measure: pray_ad_prepare_show_pv {
+    type: count
+    filters: [event_name: "pray_ad_prepare_show"]
+  }
+
+  measure: pray_ad_prepare_show_pv_avg {
+    type: number
+    sql: ${pray_ad_prepare_show_pv}/${start_app_uv} ;;
+    value_format: "0.000"
+  }
+
+  measure: pray_ad_show_uv {
+    type: count_distinct
+    sql: ${TABLE}.user_pseudo_id ;;
+    filters: [event_name: "pray_ad_show"]
+  }
+
+  measure: pray_ad_show_pv {
+    type: count
+    filters: [event_name: "pray_ad_show"]
+  }
+
+  measure: pray_ad_show_pv_avg {
+    type: number
+    sql: ${pray_ad_show_pv}/${start_app_uv} ;;
+    value_format: "0.000"
+  }
+
+  measure: pray_show_rate {
+    type: number
+    sql: if(${pray_ad_prepare_show_pv}=0,null,${pray_ad_show_pv} / ${pray_ad_prepare_show_pv}) ;;
+    value_format: "0.00%"
+  }
+
+  measure: quiz_ad_prepare_uv {
+    type: count_distinct
+    sql: ${TABLE}.user_pseudo_id ;;
+    filters: [event_name: "quiz_ad_prepare"]
+  }
+
+  measure: quiz_ad_prepare_pv {
+    type: count
+    filters: [event_name: "quiz_ad_prepare_show"]
+  }
+
+  measure: quiz_ad_prepare_pv_avg {
+    type: number
+    sql: ${quiz_ad_prepare_pv}/${start_app_uv} ;;
+    value_format: "0.000"
+  }
+
+  measure: quiz_ad_show_uv {
+    type: count_distinct
+    sql: ${TABLE}.user_pseudo_id ;;
+    filters: [event_name: "Quiz_AD_show_1,Quiz_AD_show_2,Quiz_AD_show_3,Quiz_AD_show_4"]
+  }
+
+  measure: quiz_ad_show_pv {
+    type: count
+    filters: [event_name: "Quiz_AD_show_1,Quiz_AD_show_2,Quiz_AD_show_3,Quiz_AD_show_4"]
+  }
+
+  measure: quiz_ad_show_pv_avg {
+    type: number
+    sql: ${quiz_ad_show_pv}/${start_app_uv} ;;
+    value_format: "0.000"
+  }
+
+  measure: quiz_show_rate {
+    type: number
+    sql: if(${quiz_ad_prepare_pv_avg}=0,null,${quiz_ad_show_pv} / ${quiz_ad_prepare_pv_avg}) ;;
+    value_format: "0.00%"
+  }
+
+  measure: readmark_ad_prepare_show_uv {
+    type: count_distinct
+    sql: ${TABLE}.user_pseudo_id ;;
+    filters: [event_name: "readmark_ad_prepare_show"]
+  }
+
+  measure: readmark_ad_prepare_show_pv {
+    type: count
+    filters: [event_name: "readmark_ad_prepare_show"]
+  }
+
+  measure: readmark_ad_prepare_show_pv_avg {
+    type: number
+    sql: ${readmark_ad_prepare_show_pv}/${start_app_uv} ;;
+    value_format: "0.000"
+  }
+
+  measure: readmark_ad_show_uv {
+    type: count_distinct
+    sql: ${TABLE}.user_pseudo_id ;;
+    filters: [event_name: "readmark_ad_show"]
+  }
+
+  measure: readmark_ad_show_pv {
+    type: count
+    filters: [event_name: "readmark_ad_show"]
+  }
+
+  measure: readmark_ad_show_pv_avg {
+    type: number
+    sql: ${readmark_ad_show_pv}/${start_app_uv} ;;
+    value_format: "0.000"
+  }
+
+  measure: readmark_show_rate {
+    type: number
+    sql: if(${readmark_ad_prepare_show_pv}=0,null,${readmark_ad_show_pv} / ${readmark_ad_prepare_show_pv}) ;;
+    value_format: "0.00%"
   }
 }
 
