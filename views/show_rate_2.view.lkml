@@ -245,7 +245,7 @@ view: show_rate_2 {
 
   measure: quiz_ad_prepare_pv {
     type: count
-    filters: [event_name: "quiz_ad_prepare_show"]
+    filters: [event_name: "quiz_ad_prepare"]
   }
 
   measure: quiz_ad_prepare_pv_avg {
