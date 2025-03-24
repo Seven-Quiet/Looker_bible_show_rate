@@ -28,3 +28,5 @@ explore: week_comparision {}
 explore: week_comparison_bfw_android {}
 
 explore: week_comparison_oremus_android {}
+
+explore: test_appopen_enter_launch_retention {}

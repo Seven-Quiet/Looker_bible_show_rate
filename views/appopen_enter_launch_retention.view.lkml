@@ -1,5 +1,5 @@
 view: appopen_enter_launch_retention {
-  sql_table_name: `biblia-sagrada-consigo.Bible.appopen_enter_launch_retention` ;;
+  sql_table_name: `bible-warehouse.ads_looker.ads_bible_looker_appopen_enter_launch_retention_pdi` ;;
 
   dimension: category {
     type: string
@@ -15,11 +15,11 @@ view: appopen_enter_launch_retention {
     timeframes: [raw, date, week, month, quarter, year]
     convert_tz: no
     datatype: date
-    sql: ${TABLE}.dt ;;
+    sql: ${TABLE}.event_date ;;
   }
   dimension: dx {
     type: string
-    sql: ${TABLE}.Dx ;;
+    sql: ${TABLE}.day_n_retention ;;
   }
   dimension: event_name {
     type: string
